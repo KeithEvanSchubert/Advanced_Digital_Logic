@@ -33,12 +33,12 @@ counter #(16) my_count(
 	);
 	
 assign count2= count0[19]?
-						count0[18]?count1[15:12]:count1[11:8] :
-						count0[18]?count1[7:4]:count1[3:0];
+                  count0[18]?count1[15:12]:count1[11:8] :
+                  count0[18]?count1[7:4]:count1[3:0];
 
 assign an    = count0[19]?
-						count0[18]?4'b0111:4'b1011 :
-						count0[18]?4'b1101:4'b1110;
+                  count0[18]?4'b0111:4'b1011 :
+                  count0[18]?4'b1101:4'b1110;
 
 
 

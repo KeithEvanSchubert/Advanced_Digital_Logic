@@ -1,0 +1,71 @@
+\documentclass{book}
+\usepackage{graphicx} % new way of doing eps files
+\usepackage{rotating} % for sideways
+\usepackage{multirow} % for \multirow
+\usepackage{url}      % for \url
+\usepackage{hyperref} % for \href
+\usepackage{listings} % nice code layout
+\usepackage[usenames]{color} % color
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{graphgray}{gray}{0.7}
+\definecolor{ans}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+% \Code{title}{label}{file}{language}
+\newcommand{\Code}[4]{
+  \lstset{language={#4}}
+  \lstset{backgroundcolor=\color{listinggray},rulecolor=\color{blue}}
+  \lstset{linewidth=\textwidth}
+  \lstset{commentstyle=\textit, stringstyle=\upshape,showspaces=false}
+  \lstset{frame=tb}
+  \lstinputlisting[caption={#1},label={#2}]{#3}
+}
+
+\usepackage{floatflt}
+%\usepackage{cscilabs}
+
+\topmargin 0in
+\textheight 8.5in
+\textwidth 6.5in
+\evensidemargin 0in
+\oddsidemargin 0in
+
+\renewcommand{\chaptername}{Lab}
+
+
+\title{
+{\Huge Baylor University} \\
+\vspace{1in}
+{\large Department of} \\
+{\Large Electrical and Computer Engineering}\\
+\vspace{1in}
+{\Large ELC 5311 (graduates), 4396(undergrad)} \\
+{\Huge Advanced Digital Logic Laboratories} \\
+}
+\author{
+Keith Schubert\\
+Associate Professor\\
+Department of Electrical and Computer Engineering\\
+Baylor University
+}
+\date{}
+
+\makeindex
+
+\begin{document}
+
+\baselineskip=1.05\normalbaselineskip
+
+\maketitle
+
+\tableofcontents
+
+%\listoffigures
+
+%\listoftables
+
+\pagenumbering{arabic}
+
+\input{5311_lab_intro}
+
+\end{document}
+

@@ -1,0 +1,17 @@
+\chapter{Basys 2 Programming}
+
+We are going to begin with a simple project to turn on LEDs when the switch under them is on.  There are eight switches (called sw$\langle 7\rangle$ \ldots sw$\langle 0\rangle$), and eight LEDs  (called Led$\langle 7\rangle$ \ldots Led$\langle 0\rangle$).  Our first easy part will be to assign the LEDs to be identical to the switches, see Code~\ref{code:passthroughsimple}.
+
+\Code{Verilog code for pass-through}{code:passthroughsimple}{pass_through_simple.v}{verilog}
+
+This code simply passes the switches through to the LEDs, but it demonstrates the \textbf{assign} statement, which is one of our basic ways of designing combinational circuits.
+
+\section{Making a Counter for the Seven Segment Display}
+
+Now we want to drive the seven segment display.
+
+All the anodes for a digit are hooked together, so since there are four digits there are four anode lines (called an$\langle 3\rangle$ \ldots an$\langle 0\rangle$).  The output of the fpga is not strong enough to supply all the current for the LEDs, so a pnp transistor is used to switch power (\emph{Why does a pnp switch power better, and an npn switch ground better?}).  This means a zero, is needed to turn the pnp on and a 1 will turn it off.
+
+Additionally, all the cathodes of the LEDs in the same position are hooked together.  So for example, all four of the top LEDs' cathodes are hooked together, as are all the cathodes of the upper right, and so on.  The top LED is called A or seg$\langle 0\rangle$, the letters and numbers proceed clockwise, and the middle segment is G or seg$\langle 6\rangle$.  Each digit also has a decimal point, which is called dp, and their cathodes are also connected.   The FPGA does sink the current in this case (\emph{Why can it sink what it couldn't source?}), so a zero turns the LED on if the anode was also sourced.
+
+This slicing allows control of 32 LEDs with 12 wires and one fourth can be on simultaneously.  Since each LED will be off three fourths of the time, we need to switch them faster than the eye can see, and since the diode's pn junction holds charge for a bit (discharges like a capacitor, why?) and thus continues to glow, and the eye continues to see light for a bit 

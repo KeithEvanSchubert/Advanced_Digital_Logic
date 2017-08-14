@@ -1,0 +1,35 @@
+\chapter{Babbage Difference Engine Emulation Circuit}
+
+\section{Newton's Differences}
+Newton's method of differences is foundational to interpolation, where it comes in as divided differences, and as a simplification of calculus.  Essential each difference is approximating a derivative.  You calculate the differences between successive steps, say $f(n)$ and $f(n-1)$ for the values of $n$ that are in a region of interest.  If the differences are constant you are done, if not take the differences of these.  Repeat until they become constant.  Since differences approximate derivatives, repeatedly performing differences on finite polynomials will eventually result in a constant.  For example consider performing Newton's differences on $f(n)=n^2$,
+
+\noindent
+\begin{tabular}{c|ccccc}
+$n$                                                 & 0 & 1 & 2 & 3 & 4  \\\hline
+$f(n)=n^2$                                          & 0 & 1 & 4 & 9 & 16 \\
+$f_1=f(n)-f(n-1)=n^2-(n-1)^2=n^2-(n^2-2n+1)=2n-1$   & - & 1 & 3 & 5 & 7  \\
+$f_2=f_1(n)-f_1(n-1)=2n-1-(2(n-1)-1)=2n-1-(2n-3)=2$ & - & - & 2 & 2 & 2  \\
+\end{tabular}
+
+Notice after two differences you end up with a constant difference of $2$, which is the same as the second derivative of the function.  Note this is not an accident, since it is following the leading coefficient.  It works for both the points and algebraically due to the leading coefficent being the important part, but note the intermediate terms are not exactly the derivative\footnote{This leads to the need for Newton to develop infinitesimals to fix it, that in turn led to Calculus}, but are needed to keep the scales right given the jump between each integer.  
+
+You can also try this on $f(n)=n^3$ (or any other finite polynomial),
+
+\noindent
+\begin{tabular}{c|ccccc}
+$n$                                                      & 0 & 1 & 2 &  3 &  4  \\\hline
+$f(n)=n^3$                                               & 0 & 1 & 8 & 27 & 64 \\
+$f_1=f(n)-f(n-1)=n^3-(n-1)^3=3n^2-3n+1$                  & - & 1 & 7 & 19 & 37  \\
+$f_2=f_1(n)-f_1(n-1)=3n^2-3n+1-(3(n-1)^2-3(n-1)+1)=6n-6$ & - & - & 6 & 12 & 18  \\
+$f_3=f_2(n)-f_2(n-1)=(6n-6)-(6(n-1)-6)=6$                & - & - & - &  6 &  6  \\
+\end{tabular} 
+
+For non-polynomials or infinite polynomials it will keep going but the intermediates are meaningful due to Taylor Series approximation.  If you are interested in going further with this take a course on numerics (a much beloved field of mine...), though this is as much as we need.  
+
+\section{Babbage's Difference Engine}
+This is what Babbage implemented in his famous difference engine (and expanded on in the analytic engine), and which Lady Ada Lovelace became the first programmer due to her love of and skill with mathematics.  Together this idea brings together three of the great events of computer history, which is why we will build it (something Babbage was not able to due to the cost and time.   The process is nicely described in Experiment 6.5.7 Babbage Difference Engine Emulation Circuit from the book.  Steps 1-4 are the methodology, step 5 just asks you to redo the design for a second system.  Design and implement for both polynomials ($f(n)=2n^2+3n+5$ and $h(n)=n^3+2n^2+2n+1$).  Calculate the algebraic form
+
+\section{Graduate Students}
+Babbage's difference engine can be generalized to where you can input the parameters for each of the sub-functions.  Design a system that would work for any second or third order polynomial by inputting coefficients.  Include the design with explanation (you don't have to build it) in your report in addition to the work the undergrads must do.
+ 
+

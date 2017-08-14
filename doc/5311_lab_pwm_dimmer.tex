@@ -1,0 +1,15 @@
+\chapter{PWM Dimmer}
+
+\section{Pulse Width Modulation}
+
+Pulse width modulation is a direct way to drive analog devices with a digital output.  Since it does not require any additional equipment, it is very popular in a number of applications.  The basic idea is similar to a bang-bang control\footnote{Bang-bang controls are best known in thermostats, where the system is on or off, but not in any state in between.}, but unlike typical bang-bang controls the cycle time is set very short so the output is effectively a weighted averaged, since most systems function like a low pass filter.  The weighting is due to the duty cycle, which is the fraction of the cycle time that the output is on/high.  If the output power of the digital line is $P$ and the duty cycle is $d$, then the effective power is $P_e=d P$.
+
+Pulse width modulation is very effective in simple servos, LEDs, and other simple devices that need to be driven by a digital controller.  They are particularly common in hobby applications, but also find use in telecommunications, monitors, fans, and pumps.  You can time them off the leading edge, trailing edge, or center of the edges, which results in three slightly different versions, but all are identified as PWM versions.
+
+\section{Assignment for all}
+
+Do Experiment 4.7.2 PWM and LED Dimmer from the Book.
+
+\section{Graduate Student Additional Work}
+
+Incorporate your dimmer in the LED time-multiplexing circuit of 4.5.1.  In order to do this, you need more than 8 switches.  Since this is only for testing, use switches 0-7 for the original circuit and also use 0-3 for the dimmer.  This has duplication but does not produce any issues for demonstration purposes.  Note: basic code for the system is available in the starter code from the book available from the class GitHub. 

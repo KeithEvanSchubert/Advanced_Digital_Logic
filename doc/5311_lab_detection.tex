@@ -1,0 +1,9 @@
+\chapter{Parking Lot}
+
+\section{Is the Lot Full}
+
+Knowing if a parking lot is full, allows us to advise motorists as well as store usage data to plan for future additions.  Since many parking lots were not designed around controlling entrance and exit of vehicles or people, retrofitting a parking lot for a counter becomes an issue.  Additionally, many entrances are two-way, creating further complications.  You are part of a team that will be building a sensor for retrofitting small parking lots ($<100$ cars).  As such the expense of cutting through the road to put car sensors is prohibitive, so a light based sensor (see Figure 5.11 in the book) has been selected.  In 5.5.3, the method of determining if a car is entering or exiting is outlined, but there are many other exceptions, such as a car starting to enter and then backing up.  You may assume the sensors are spaced to be able to identify a car from smaller objects like people or bikes since the latter will only trip one sensor at a time, while cars will trip both.  Such a system could be tricked by two people, however, so you may assume for simplicity that the lanes to the parking lot are not high foot traffic areas.
+
+\section{Task}
+
+Design, implement, test, and document your solution to 5.5.3 in the textbook.  For graduate students: assume there are two entry/exit points so your counter must handle multiple sensor units sending inc and dec signals. 

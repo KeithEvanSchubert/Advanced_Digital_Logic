@@ -61,6 +61,15 @@
 \usepackage{floatflt}
 %\usepackage{cscilabs}
 
+\newcounter{examplecounter}
+\newenvironment{example}{\begin{quote}%
+    \refstepcounter{examplecounter}%
+  \textbf{Example \arabic{examplecounter}:}%
+  \quad
+}{%
+\end{quote}%
+}
+
 \topmargin 0in
 \textheight 8.5in
 \textwidth 6.5in
@@ -107,7 +116,7 @@ Baylor University
 
 \input{5311_lab_barrel_shifter}
 
-\input{5311_lab_stack}
+\input{5311_lab_add}
 
 \input{5311_lab_pwm_dimmer}
 
